@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookClub | Modern Book Lovers Community</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-book-open"></i>
+                <span>BookClub</span>
+            </div>
+            <div class="nav-links">
+                <a href="#featured">Featured</a>
+                <a href="#community">Community</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#events">Events</a>
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="auth-btn" class="btn-outline">Sign In</button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="tab-btn active" data-tab="login">Login</button>
+                <button class="tab-btn" data-tab="register">Register</button>
+            </div>
+            <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-genre">Favorite Genre</label>
+                    <select id="register-genre">
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="fantasy">Fantasy</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover Your Next Literary Adventure</h1>
+                <p>Join thousands of book enthusiasts in exploring, discussing, and celebrating literature.</p>
+                <div class="hero-buttons">
+                    <a href="#featured" class="btn-primary">Explore Books</a>
+                    <a href="#community" class="btn-outline">Join Community</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="book-stack">
+                    <div class="book book-1"></div>
+                    <div class="book book-2"></div>
+                    <div class="book book-3"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Books Section -->
+    <section id="featured" class="featured-section">
+        <div class="container">
+            <h2 class="section-title">Featured Books</h2>
+            <div class="books-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="fiction">Fiction</button>
+                <button class="filter-btn" data-filter="non-fiction">Non-Fiction</button>
+                <button class="filter-btn" data-filter="sci-fi">Sci-Fi</button>
+            </div>
+            <div class="books-grid" id="books-container">
+                <!-- Books will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="community-section">
+        <div class="container">
+            <h2 class="section-title">Our Community</h2>
+            <div class="community-stats">
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>12,345+</h3>
+                    <p>Members</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-book"></i>
+                    <h3>8,765+</h3>
+                    <p>Books Reviewed</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>120+</h3>
+                    <p>Events Monthly</p>
+                </div>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial active">
+                    <p>"BookVerse helped me discover books I never would have found on my own. The community recommendations are spot on!"</p>
+                    <div class="user-info">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J.">
+                        <div>
+                            <h4>Sarah J.</h4>
+                            <p>Member since 2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <p>"As an author, I've found incredible engagement with readers through BookVerse's community events."</p>
+                    <div class="user-info">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael T.">
+                        <div>
+                            <h4>Michael T.</h4>
+                            <p>Author & Member</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2 class="section-title">Recent Reviews</h2>
+            <div class="reviews-grid" id="reviews-container">
+                <!-- Reviews will be loaded dynamically -->
+            </div>
+            <div class="add-review">
+                <h3>Share Your Thoughts</h3>
+                <form id="review-form">
+                    <div class="form-group">
+                        <label for="review-book">Book Title</label>
+                        <input type="text" id="review-book" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-author">Author</label>
+                        <input type="text" id="review-author" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-rating">Rating</label>
+                        <div class="rating-stars">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                            <input type="hidden" id="review-rating" value="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-text">Your Review</label>
+                        <textarea id="review-text" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="events-timeline" id="events-container">
+                <!-- Events will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for weekly book recommendations and event updates.</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>BookVerse</h3>
+                    <p>Your gateway to literary exploration and community connection.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-goodreads"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Explore</h3>
+                    <ul>
+                        <li><a href="#featured">Featured Books</a></li>
+                        <li><a href="#reviews">Book Reviews</a></li>
+                        <li><a href="#community">Community</a></li>
+                        <li><a href="#events">Events Calendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@bookverse.com</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Book St, Lit City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> BookVerse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
